@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   countries: [],
-  selectedCountries: [],
   loading: false,
   error: null,
 };
@@ -19,15 +18,7 @@ const countriesSlice = createSlice({
     },
     setError: (state, action) => {
       state.error = action.payload;
-    },
-    selectCountry: (state, action) => {
-      state.selectedCountries.push(action.payload);
-    },
-    unSelectCountry: (state, action) => {
-      state.selectedCountries = state.selectedCountries.filter(
-        (country) => country.cca2 !== action.payload
-      );
-    },
+    }
   },
 });
 
@@ -36,6 +27,4 @@ export const {
   setCountries,
   setLoading,
   setError,
-  selectCountry,
-  unSelectCountry,
 } = countriesSlice.actions;
